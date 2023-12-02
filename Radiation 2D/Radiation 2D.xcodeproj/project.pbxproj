@@ -11,6 +11,7 @@
 		506DEDE12B1ABAE60020F3D2 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506DEDE02B1ABAE60020F3D2 /* Model.swift */; };
 		506DEDE32B1AC50F0020F3D2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506DEDE22B1AC50F0020F3D2 /* Extensions.swift */; };
 		506DEDE42B1AC50F0020F3D2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506DEDE22B1AC50F0020F3D2 /* Extensions.swift */; };
+		506DEDE62B1AD1570020F3D2 /* CG Math Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506DEDE52B1AD1570020F3D2 /* CG Math Tests.swift */; };
 		50957E032B1AA30C00316EF2 /* Radiation_2D App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50957E022B1AA30C00316EF2 /* Radiation_2D App.swift */; };
 		50957E052B1AA30C00316EF2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50957E042B1AA30C00316EF2 /* ContentView.swift */; };
 		50957E072B1AA30D00316EF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50957E062B1AA30D00316EF2 /* Assets.xcassets */; };
@@ -41,6 +42,8 @@
 		506DEDDE2B1ABA9B0020F3D2 /* SimulationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulationView.swift; sourceTree = "<group>"; };
 		506DEDE02B1ABAE60020F3D2 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		506DEDE22B1AC50F0020F3D2 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		506DEDE52B1AD1570020F3D2 /* CG Math Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CG Math Tests.swift"; sourceTree = "<group>"; };
+		506DEDE82B1AD49C0020F3D2 /* Radiation 2D.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Radiation 2D.xctestplan"; sourceTree = "<group>"; };
 		50957DFF2B1AA30C00316EF2 /* Radiation 2D.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Radiation 2D.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		50957E022B1AA30C00316EF2 /* Radiation_2D App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Radiation_2D App.swift"; sourceTree = "<group>"; };
 		50957E042B1AA30C00316EF2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -82,6 +85,7 @@
 		50957DF62B1AA30C00316EF2 = {
 			isa = PBXGroup;
 			children = (
+				506DEDE82B1AD49C0020F3D2 /* Radiation 2D.xctestplan */,
 				50957E012B1AA30C00316EF2 /* Radiation 2D */,
 				50957E132B1AA30D00316EF2 /* Radiation 2D Tests */,
 				50957E1D2B1AA30D00316EF2 /* Radiation 2D UI Tests */,
@@ -126,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				50957E142B1AA30D00316EF2 /* Radiation_2D Tests.swift */,
+				506DEDE52B1AD1570020F3D2 /* CG Math Tests.swift */,
 			);
 			path = "Radiation 2D Tests";
 			sourceTree = "<group>";
@@ -282,6 +287,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				50957E152B1AA30D00316EF2 /* Radiation_2D Tests.swift in Sources */,
+				506DEDE62B1AD1570020F3D2 /* CG Math Tests.swift in Sources */,
 				506DEDE42B1AC50F0020F3D2 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
