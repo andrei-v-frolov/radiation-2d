@@ -8,11 +8,15 @@
 import SwiftUI
 
 struct SimulationView: View {
+    @State private var trajectory: Trajectory = .racetrack(2.0)
+    
     var body: some View {
         Canvas(rendersAsynchronously: false) { context, size in
-            let origin = CGPoint(x: size.width/2.0, y: size.height/2.0)
-            let path = Path(ellipseIn: CGRect(origin: origin, size: size))
-            context.stroke(path, with: .color(.green), lineWidth: 4)
+            let scale = min(size.width, size.height)/10.0, thickness = 4.0/scale
+            context.translateBy(x: size.width/2.0, y: size.height/2.0)
+            context.scaleBy(x: scale, y: -scale)
+            
+            context.stroke(trajectory.path, with: .color(.green), lineWidth: thickness)
         }
         .background(.gray)
     }

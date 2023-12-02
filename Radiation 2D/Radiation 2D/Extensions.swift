@@ -9,6 +9,10 @@ import Foundation
 
 // MARK: Core Graphics extensions
 
+// type casts
+extension CGPoint { init(_ size: CGSize) { self.init(x: size.width, y: size.height)} }
+extension CGSize { init(_ point: CGPoint) { self.init(width: point.x, height: point.y)} }
+
 // affine transforms
 extension CGAffineTransform {
     // convenience initializers
