@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		506DEDDF2B1ABA9B0020F3D2 /* SimulationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506DEDDE2B1ABA9B0020F3D2 /* SimulationView.swift */; };
+		506DEDE12B1ABAE60020F3D2 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506DEDE02B1ABAE60020F3D2 /* Model.swift */; };
+		506DEDE32B1AC50F0020F3D2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506DEDE22B1AC50F0020F3D2 /* Extensions.swift */; };
+		506DEDE42B1AC50F0020F3D2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506DEDE22B1AC50F0020F3D2 /* Extensions.swift */; };
 		50957E032B1AA30C00316EF2 /* Radiation_2D App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50957E022B1AA30C00316EF2 /* Radiation_2D App.swift */; };
 		50957E052B1AA30C00316EF2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50957E042B1AA30C00316EF2 /* ContentView.swift */; };
 		50957E072B1AA30D00316EF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50957E062B1AA30D00316EF2 /* Assets.xcassets */; };
@@ -34,6 +38,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		506DEDDE2B1ABA9B0020F3D2 /* SimulationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulationView.swift; sourceTree = "<group>"; };
+		506DEDE02B1ABAE60020F3D2 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		506DEDE22B1AC50F0020F3D2 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		50957DFF2B1AA30C00316EF2 /* Radiation 2D.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Radiation 2D.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		50957E022B1AA30C00316EF2 /* Radiation_2D App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Radiation_2D App.swift"; sourceTree = "<group>"; };
 		50957E042B1AA30C00316EF2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -97,6 +104,9 @@
 			children = (
 				50957E022B1AA30C00316EF2 /* Radiation_2D App.swift */,
 				50957E042B1AA30C00316EF2 /* ContentView.swift */,
+				506DEDDE2B1ABA9B0020F3D2 /* SimulationView.swift */,
+				506DEDE02B1ABAE60020F3D2 /* Model.swift */,
+				506DEDE22B1AC50F0020F3D2 /* Extensions.swift */,
 				50957E062B1AA30D00316EF2 /* Assets.xcassets */,
 				50957E082B1AA30D00316EF2 /* Radiation_2D.entitlements */,
 				50957E092B1AA30D00316EF2 /* Preview Content */,
@@ -259,8 +269,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				506DEDE32B1AC50F0020F3D2 /* Extensions.swift in Sources */,
+				506DEDDF2B1ABA9B0020F3D2 /* SimulationView.swift in Sources */,
 				50957E052B1AA30C00316EF2 /* ContentView.swift in Sources */,
 				50957E032B1AA30C00316EF2 /* Radiation_2D App.swift in Sources */,
+				506DEDE12B1ABAE60020F3D2 /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,6 +282,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				50957E152B1AA30D00316EF2 /* Radiation_2D Tests.swift in Sources */,
+				506DEDE42B1AC50F0020F3D2 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
