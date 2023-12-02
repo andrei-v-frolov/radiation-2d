@@ -5,13 +5,30 @@
 //  Created by Andrei Frolov on 2023-12-01.
 //
 
+import simd
 import Foundation
 
 // MARK: Core Graphics extensions
 
 // type casts
-extension CGPoint { init(_ size: CGSize) { self.init(x: size.width, y: size.height)} }
-extension CGSize { init(_ point: CGPoint) { self.init(width: point.x, height: point.y)} }
+extension CGPoint {
+    init(_ size: CGSize) { self.init(x: size.width, y: size.height) }
+    
+    init(_ v: SIMD2<Double>) { self.init(x: v.x, y: v.y) }
+    var coords: SIMD2<Double> { SIMD2<Double>(x, y) }
+}
+
+extension CGSize {
+    init(_ point: CGPoint) { self.init(width: point.x, height: point.y) }
+    
+    init(_ v: SIMD2<Double>) { self.init(width: v.x, height: v.y) }
+    var coords: SIMD2<Double> { SIMD2<Double>(width, height) }
+}
+
+extension CGRect {
+    init(_ v: SIMD4<Double>) { self.init(x: v.x, y: v.y, width: v.z, height: v.w) }
+    var shape: SIMD4<Double> { SIMD4<Double>(minX, minY, width, height) }
+}
 
 // affine transforms
 extension CGAffineTransform {
