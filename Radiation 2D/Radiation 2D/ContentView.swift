@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         ZStack {
-            SimulationView()
+            TimelineView(.animation) { timeline in SimulationView(time: timeline.date.timeIntervalSinceReferenceDate) }
         }
         .padding(0)
         .edgesIgnoringSafeArea(.all)

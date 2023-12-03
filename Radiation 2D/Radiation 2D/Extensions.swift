@@ -8,22 +8,43 @@
 import simd
 import Foundation
 
+// MARK: SIMD extensions
+
+extension SIMD4 {
+    var q: SIMD2<Scalar> { SIMD2<Scalar>(self.x, self.y) }
+    var p: SIMD2<Scalar> { SIMD2<Scalar>(self.z, self.w) }
+    var xy: SIMD2<Scalar> { SIMD2<Scalar>(self.x, self.y) }
+    var xyz: SIMD3<Scalar> { SIMD3<Scalar>(self.x, self.y, self.z) }
+}
+
+
 // MARK: Core Graphics extensions
 
-// type casts
+// type bridging
 extension CGPoint {
+    init(_ v: CGVector) { self.init(x: v.dx, y: v.dy) }
+    init(_ v: SIMD2<Double>) { self.init(x: v.x, y: v.y) }
     init(_ size: CGSize) { self.init(x: size.width, y: size.height) }
     
-    init(_ v: SIMD2<Double>) { self.init(x: v.x, y: v.y) }
     var coords: SIMD2<Double> { SIMD2<Double>(x, y) }
 }
 
 extension CGSize {
+    init(_ v: CGVector) { self.init(width: v.dx, height: v.dy) }
+    init(_ v: SIMD2<Double>) { self.init(width: v.x, height: v.y) }
     init(_ point: CGPoint) { self.init(width: point.x, height: point.y) }
     
-    init(_ v: SIMD2<Double>) { self.init(width: v.x, height: v.y) }
     var coords: SIMD2<Double> { SIMD2<Double>(width, height) }
 }
+
+extension CGVector {
+    init(_ v: SIMD2<Double>) { self.init(dx: v.x, dy: v.y) }
+    init(_ point: CGPoint) { self.init(dx: point.x, dy: point.y) }
+    init(_ size: CGSize) { self.init(dx: size.width, dy: size.height) }
+    
+    var coords: SIMD2<Double> { SIMD2<Double>(dx, dy) }
+}
+
 
 extension CGRect {
     init(_ v: SIMD4<Double>) { self.init(x: v.x, y: v.y, width: v.z, height: v.w) }
