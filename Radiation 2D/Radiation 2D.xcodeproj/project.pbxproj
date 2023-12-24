@@ -22,6 +22,7 @@
 		50957E1F2B1AA30D00316EF2 /* Radiation 2D UI Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50957E1E2B1AA30D00316EF2 /* Radiation 2D UI Tests.swift */; };
 		50957E212B1AA30D00316EF2 /* Radiation 2D UI Launch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50957E202B1AA30D00316EF2 /* Radiation 2D UI Launch.swift */; };
 		50E6C84F2B37785E00F5779A /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506DEDE02B1ABAE60020F3D2 /* Model.swift */; };
+		50F729652B38AB2200C14A65 /* TrajectoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F729642B38AB2200C14A65 /* TrajectoryView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		50957E1A2B1AA30D00316EF2 /* Radiation 2D UI Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Radiation 2D UI Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		50957E1E2B1AA30D00316EF2 /* Radiation 2D UI Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Radiation 2D UI Tests.swift"; sourceTree = "<group>"; };
 		50957E202B1AA30D00316EF2 /* Radiation 2D UI Launch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Radiation 2D UI Launch.swift"; sourceTree = "<group>"; };
+		50F729642B38AB2200C14A65 /* TrajectoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrajectoryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 				50957E022B1AA30C00316EF2 /* RadiationApp.swift */,
 				50957E042B1AA30C00316EF2 /* ContentView.swift */,
 				506DEDDE2B1ABA9B0020F3D2 /* SimulationView.swift */,
+				50F729642B38AB2200C14A65 /* TrajectoryView.swift */,
 				506DEDE02B1ABAE60020F3D2 /* Model.swift */,
 				506ADE942B37E0B50009AB76 /* Integrator.swift */,
 				506DEDE22B1AC50F0020F3D2 /* Extensions.swift */,
@@ -281,6 +284,7 @@
 			files = (
 				506DEDE32B1AC50F0020F3D2 /* Extensions.swift in Sources */,
 				506DEDDF2B1ABA9B0020F3D2 /* SimulationView.swift in Sources */,
+				50F729652B38AB2200C14A65 /* TrajectoryView.swift in Sources */,
 				506ADE952B37E0B50009AB76 /* Integrator.swift in Sources */,
 				50957E052B1AA30C00316EF2 /* ContentView.swift in Sources */,
 				50957E032B1AA30C00316EF2 /* RadiationApp.swift in Sources */,
