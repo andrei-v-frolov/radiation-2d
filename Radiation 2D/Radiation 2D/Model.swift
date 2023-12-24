@@ -5,6 +5,7 @@
 //  Created by Andrei Frolov on 2023-12-01.
 //
 
+import simd
 import SwiftUI
 
 // pre-defined charge symbols
@@ -84,6 +85,42 @@ enum Trajectory {
                     let c = cos(l-2.0*w), s = sin(l-2.0*w)
                     return SIMD4<Double>(s-w/2.0, c, c, -s)
                 }
+        }
+    }
+}
+
+// relativistic particle
+struct Particle {
+    // integrator state
+    var state = SIMD4<Double>(repeating: 0.0)
+    
+    // coordinates and momentum
+    var x: SIMD2<Double> { state.lowHalf }
+    var p: SIMD2<Double> { state.highHalf }
+    var v: SIMD2<Double> { p/sqrt(1.0+dot(p,p)) }
+    
+    //var state: SIMD4<Double> { SIMD4<Double>(lowHalf: x, highHalf: v) }
+    
+    // relativistic equations of motion
+    mutating func advance(_ dt: Double, follow: SIMD2<Double>? = nil, steps n: Int = 1) {
+        let alpha = 1.0, kappa = 1.0
+        
+        if let t = follow {
+            // damped oscillator
+            for _ in 0..<n {
+                state = gl8(state: state, step: dt/Double(n)) {
+                    let x = $0.lowHalf, p = $0.highHalf, v = p/sqrt(1.0+dot(p,p))
+                    return SIMD4<Double>(lowHalf: v, highHalf: -alpha*p - kappa*(x-t))
+                }
+            }
+        } else {
+            // damped motion
+            for _ in 0..<n {
+                state = gl8(state: state, step: dt/Double(n)) {
+                    let p = $0.highHalf, v = p/sqrt(1.0+dot(p,p))
+                    return SIMD4<Double>(lowHalf: v, highHalf: -alpha*p)
+                }
+            }
         }
     }
 }
