@@ -21,12 +21,27 @@ enum Symbol {
 }
 
 // pre-defined charge trajectories
-enum Trajectory {
-    case line(Double), dipole, circle, racetrack(Double)
+enum Trajectory: CaseIterable, Hashable {
+    case drag, line(Double), dipole, circle, racetrack(Double)
+    
+    // cases exposed to UI
+    static var allCases: [Self] = [.drag, .line(7.0), .dipole, .circle, .racetrack(3.0)]
+    
+    // text description
+    var description: String {
+        switch self {
+            case .drag: return "Drag Freely"
+            case .line: return "Straight Line"
+            case .dipole: return "Dipole"
+            case .circle: return "Synchrotron"
+            case .racetrack: return "Race Track"
+        }
+    }
     
     // total length of the trajectory
     var length: Double {
         switch self {
+            case .drag: return 0.0
             case .line(let w): return w
             case .dipole: return 4.0
             case .circle: return 2.0*Double.pi
@@ -35,8 +50,9 @@ enum Trajectory {
     }
     
     // path tracing the trajectory
-    var path: Path {
+    var path: Path? {
         switch self {
+            case .drag: return nil
             case .line(let w): return Path {
                 $0.move(to: CGPoint(x: -w/2.0, y: 0.0))
                 $0.addLine(to: CGPoint(x: w/2.0, y: 0.0))
@@ -65,6 +81,8 @@ enum Trajectory {
         let l = l.truncatingRemainder(dividingBy: length)
         
         switch self {
+            case .drag:
+                return SIMD4<Double>.zero
             case .line(let w):
                 return  SIMD4<Double>(l-w/2.0, 0.0, 1.0, 0.0)
             case .dipole:
@@ -98,8 +116,6 @@ struct Particle {
     var x: SIMD2<Double> { state.lowHalf }
     var p: SIMD2<Double> { state.highHalf }
     var v: SIMD2<Double> { p/sqrt(1.0+dot(p,p)) }
-    
-    //var state: SIMD4<Double> { SIMD4<Double>(lowHalf: x, highHalf: v) }
     
     // relativistic equations of motion
     mutating func advance(_ dt: Double, follow: SIMD2<Double>? = nil, steps n: Int = 1) {

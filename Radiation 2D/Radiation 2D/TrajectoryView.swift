@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct TrajectoryView: View {
+    @State private var trajectory = Trajectory.dipole
     @State private var rapidity = acosh(1.5)
     @FocusState private var focus: Bool
     
@@ -23,13 +24,19 @@ struct TrajectoryView: View {
     
     var body: some View {
         HStack {
-            Slider(value: $rapidity, in: 0.0...acosh(10.0)) { Text("ψ:") } onEditingChanged: { editing in focus = false }.frame(width: 160)
-            Text("β:").padding(.trailing, -5).padding(.leading, 5)
-            TextField("Latitude", value: beta, formatter: TwoDigitBeta)
-                .frame(width: 45).multilineTextAlignment(.trailing).focused($focus)
-            Text("ɣ:").padding(.trailing, -5).padding(.leading, 5)
-            TextField("Latitude", value: gamma, formatter: TwoDigitGamma)
-                .frame(width: 45).multilineTextAlignment(.trailing).focused($focus)
+            Picker("Trajectory:", selection: $trajectory) {
+                ForEach(Trajectory.allCases, id: \.self) { Text($0.description).tag($0) }
+            }.frame(width: 190)
+            Spacer().frame(width: 30)
+            Group {
+                Slider(value: $rapidity, in: 0.0...acosh(10.0)) { Text("ψ:") } onEditingChanged: { editing in focus = false }.frame(width: 160)
+                Text("β:").padding(.trailing, -5).padding(.leading, 5)
+                TextField("Latitude", value: beta, formatter: TwoDigitBeta)
+                    .frame(width: 45).multilineTextAlignment(.trailing).focused($focus)
+                Text("ɣ:").padding(.trailing, -5).padding(.leading, 5)
+                TextField("Latitude", value: gamma, formatter: TwoDigitGamma)
+                    .frame(width: 45).multilineTextAlignment(.trailing).focused($focus)
+            }.disabled(trajectory == .drag)
         }
         .padding(.top, 11)
         .padding(.bottom, 10)
@@ -54,6 +61,7 @@ let TwoDigitGamma: NumberFormatter = {
     let format = NumberFormatter()
     
     format.minimum = 1.0
+    format.maximum = 10.0
     format.minimumFractionDigits = 2
     format.maximumFractionDigits = 2
     format.isLenient = true

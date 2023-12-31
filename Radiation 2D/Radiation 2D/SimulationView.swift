@@ -17,7 +17,9 @@ struct SimulationView: View {
             context.translateBy(x: size.width/2.0, y: size.height/2.0)
             context.scaleBy(x: scale, y: -scale)
             
-            context.stroke(trajectory.path, with: .color(.green), lineWidth: thickness)
+            if let trajectory = trajectory.path {
+                context.stroke(trajectory, with: .color(.green), lineWidth: thickness)
+            }
             
             let v = trajectory.state(at: time)
             context.stroke(Path { $0.move(to: CGPoint(v.q)); $0.addLine(to: CGPoint(v.q+v.p))}, with: .color(.orange), lineWidth: thickness)
